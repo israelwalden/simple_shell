@@ -5,15 +5,14 @@
  */
 void rm_end_slash(char *tok)
 {
-	char *str = tok;
+	int i = 0;
 
-	while (*str != '\0')
+	while (tok[i] != '\0')
 	{
-		str++;
+		i++;
 	}
-	while (str > tok && *(str - 1) == '/')
+	while (i > 0 && tok[i - 1] == '/')
 	{
-		str--;
+		tok[--i] = '\0';
 	}
-	*str = '\0';
 }

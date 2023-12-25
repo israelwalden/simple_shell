@@ -8,17 +8,17 @@
 
 char **tokenize_input(char *input, char *delim)
 {
-	char *copy = strdup(input);
+	char *line_copy = strdup(input);
+	int num_tok = 0;
+	char *tok = strtok(line_copy, delim);
+	/*int len = strlen(line_copy);*/
+	char **tokens;
+
 	if(line_copy == NULL)
 	{
 		perror("strdup");
 		exit(EXIT_FAILURE);
 	}
-	int num_tok = 0;
-	char *tok = strtok(copy, delim);
-	int len = strlen(line_copy);
-	char **tokens;
-
 	while(tok)
 	{
 		num_tok++;
@@ -32,8 +32,8 @@ char **tokenize_input(char *input, char *delim)
 		exit(EXIT_FAILURE);
 	}
 	/***********************fill tokens****************************/
-	strcopy(line_copy, line);
-	num_tok = 0
+	strcpy(line_copy, input);
+	num_tok = 0;
 	tok = strtok(line_copy, delim);
 
 	while(tok)
@@ -42,7 +42,7 @@ char **tokenize_input(char *input, char *delim)
 
 		while(tok_len > 0 && tok[tok_len -1] == '/' )
 		{
-			tok[--tok_len]= '\0'
+			tok[--tok_len]= '\0';
 		}
 
 		tokens[num_tok] = strdup(tok);
@@ -59,13 +59,13 @@ char **tokenize_input(char *input, char *delim)
 	if (num_tok > 1)
 	{
 		int last_tok_len = strlen(tokens[num_tok - 1]);
-		if (last_tok_len > 0 && token[num_tok -1][last_token_len - 1] == '\n')
+		if (last_tok_len > 0 && tokens[num_tok -1][last_tok_len - 1] == '\n')
 		{
-			token[num_tok -1][last_tok_len -1] = '\0';
+			tokens[num_tok -1][last_tok_len -1] = '\0';
 		}
 	}
 	tokens[num_tok] = NULL;
 
-	free(linecopy);
+	free(line_copy);
 	return (tokens);
 }
