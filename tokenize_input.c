@@ -8,64 +8,35 @@
 
 char **tokenize_input(char *input, char *delim)
 {
+	char **argv;
 	char *line_copy = strdup(input);
 	int num_tok = 0;
+	int i = 0;
 	char *tok = strtok(line_copy, delim);
 	/*int len = strlen(line_copy);*/
-	char **tokens;
 
-	if(line_copy == NULL)
-	{
-		perror("strdup");
-		exit(EXIT_FAILURE);
-	}
-	while(tok)
+	/*count number of tokens*/
+	while (tok)
 	{
 		num_tok++;
 		tok = strtok(NULL, delim);
-	}	
-
-	tokens = (char **)malloc((num_tok + 1) * sizeof(char *));
-	if (!tokens)
-	{
-		perror("malloc");
-		exit(EXIT_FAILURE);
 	}
-	/***********************fill tokens****************************/
-	strcpy(line_copy, input);
-	num_tok = 0;
-	tok = strtok(line_copy, delim);
-
-	while(tok)
-	{
-		int tok_len =strlen(tok);
-
-		while(tok_len > 0 && tok[tok_len -1] == '/' )
-		{
-			tok[--tok_len]= '\0';
-		}
-
-		tokens[num_tok] = strdup(tok);
-		if(!tokens[num_tok])
-		{
-			perror("strdup");
-			exit(EXIT_FAILURE);
-		}
-		
-		num_tok++;
-		tok = strtok(NULL, delim);
-	}
-
-	if (num_tok > 1)
-	{
-		int last_tok_len = strlen(tokens[num_tok - 1]);
-		if (last_tok_len > 0 && tokens[num_tok -1][last_tok_len - 1] == '\n')
-		{
-			tokens[num_tok -1][last_tok_len -1] = '\0';
-		}
-	}
-	tokens[num_tok] = NULL;
+	/*allocate mem for tokens*/
+	argv = malloc((num_tok + 1) * sizeof(char *));
 
 	free(line_copy);
-	return (tokens);
+	line_copy = strdup(input);
+	tok = strtok(line_copy, delim);
+	while (tok)
+	{
+
+		argv[i] = malloc((strlen(tok) + 1) * sizeof(char));
+		strcpy(argv[i], tok);
+		tok = strtok(NULL, delim);
+		i++;
+
+	}
+	argv[i] = NULL;
+	free(line_copy);
+	return (argv);
 }
