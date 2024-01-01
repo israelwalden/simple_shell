@@ -20,6 +20,8 @@ typedef struct com
 
 
 int _strcmp(char *s1, char *s2);
+int _strlen(char *s);
+char *_strcpy(char *dest, char *src);
 
 
 

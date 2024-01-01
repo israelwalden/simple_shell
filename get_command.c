@@ -22,7 +22,8 @@ char *get_com_path(char *arg)
 			if (_strcmp(com_path[i].c, arg) == 0)
 			{
 				free(arg);
-				arg = com_path[i].file_path;
+				arg = malloc(_strlen(com_path[i].file_path) + 1);
+				_strcpy(arg, com_path[i].file_path);
 				return (arg);
 			}
 			i++;
