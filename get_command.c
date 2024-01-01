@@ -9,11 +9,16 @@ char *get_com_path(char *arg)
 	shell_commands com_path[] = {
 	{"l", "/bin/ls"},
 	{"ls", "/bin/ls"},
-	{"exit", "/bin/exit"},
 	{"echo", "/bin/echo"},
 	{NULL, NULL}
 	};
 	int i = 0;
+	char *ext = "exit";
+
+	if (_strcmp(arg, ext) == 0)
+	{
+	_exit(EXIT_SUCCESS);
+	}
 
 	if (arg[0] != '/')
 	{
