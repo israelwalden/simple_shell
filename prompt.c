@@ -2,7 +2,7 @@
 /**
  * prompt - print $ and waits for user input
  */
-void prompt(void)
+void prompt(char **env)
 {
 	char *p = "$ ";
 	char *user_input;
@@ -24,7 +24,7 @@ void prompt(void)
 			exit(1);
 		}
 		argv = tokenize_input(user_input, delim);
-		argv[0] = get_com_path(argv[0]);
+		argv[0] = get_com_path(argv[0], env);
 		if (argv == NULL)
 		{
 			perror("tokenization");

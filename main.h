@@ -1,4 +1,5 @@
 #ifndef MAIN_H
+
 #define MAIN_H
 
 #include <unistd.h>
@@ -22,14 +23,17 @@ typedef struct com
 int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
+int _strncmp(char *s1, char *s2, int n);
 
 
 
 char **tokenize_input(char *input, char *delim);
-void prompt(void);
+void prompt(char **env);
 void execute(char **tok_commands);
 void proc_man(char **tok_commands);
 void free_arg(char **argv);
-char *get_com_path(char *arg);
+char *get_com_path(char *arg, char **env);
+void _getenv(char **envar, char **var_names);
+
 
 #endif

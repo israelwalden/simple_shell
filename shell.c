@@ -5,10 +5,9 @@
  */
 int main(int ac, char **av, char **env)
 {
-	(void)ac; (void)av; (void)env;
+	(void)ac; (void)av;
 
-
-	prompt();
+	prompt(env);
 
 return (0);
 }

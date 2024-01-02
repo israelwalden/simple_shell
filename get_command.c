@@ -2,9 +2,10 @@
 /**
  * get_com_path - gets the path to the command
  * @arg: string
+ * @env: environment varibles
  * Return: char pointer to command string
  */
-char *get_com_path(char *arg)
+char *get_com_path(char *arg, char **envar)
 {
 	shell_commands com_path[] = {
 	{"l", "/bin/ls"},
@@ -14,10 +15,17 @@ char *get_com_path(char *arg)
 	};
 	int i = 0;
 	char *ext = "exit";
+	char *env = "env";
 
 	if (_strcmp(arg, ext) == 0)
 	{
 	_exit(EXIT_SUCCESS);
+	}
+
+	if (_strcmp(arg, env) == 0)
+	{
+	_getenv(envar, NULL);
+	exit(EXIT_SUCCESS);
 	}
 
 	if (arg[0] != '/')
