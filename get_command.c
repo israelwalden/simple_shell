@@ -10,6 +10,7 @@ char *get_com_path(char *arg, char **envar)
 	shell_commands com_path[] = {
 	{"l", "/bin/ls"},
 	{"ls", "/bin/ls"},
+	{"cat", "/bin/cat"},
 	{"echo", "/bin/echo"},
 	{NULL, NULL}
 	};

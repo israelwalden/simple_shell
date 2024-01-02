@@ -20,7 +20,7 @@ void prompt(char **env)
 		if (n_read == -1)
 		{
 			free(user_input);
-			perror("getline");
+			/*perror("getline");*/
 			exit(1);
 		}
 		argv = tokenize_input(user_input, delim);
