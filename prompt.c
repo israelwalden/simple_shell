@@ -15,7 +15,7 @@ void prompt(char **env)
 	while (1)
 	{
 		write(1, p, strlen(p));
-		n_read = getline(&user_input, &len, stdin);
+		n_read = _getline(&user_input, &len, stdin);
 		/*handle geline error*/
 		if (n_read == -1)
 		{

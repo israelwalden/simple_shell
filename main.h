@@ -26,7 +26,7 @@ int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 int _strncmp(char *s1, char *s2, int n);
-
+char *_strchr(char *s, char c);
 
 
 char **tokenize_input(char *input, char *delim);
@@ -37,7 +37,7 @@ void free_arg(char **argv);
 char *get_com_path(char *arg, char **env);
 void _getenv(char **envar, char **var_names);
 ssize_t _read(FILE fd, char *buf, size_t n_char);
-size_t _getline(char **lineptr, size_t *n, FILE *stream);
+ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 
 
 #endif
