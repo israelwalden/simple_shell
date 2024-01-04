@@ -8,6 +8,8 @@
 #include <stdio.h>
 #include <sys/wait.h>
 
+#define BUFFSIZE 1024
+
 /**
  * struct com - struct to hold command and path
  * @c: command string
@@ -34,6 +36,8 @@ void proc_man(char **tok_commands);
 void free_arg(char **argv);
 char *get_com_path(char *arg, char **env);
 void _getenv(char **envar, char **var_names);
+ssize_t _read(FILE fd, char *buf, size_t n_char);
+size_t _getline(char **lineptr, size_t *n, FILE *stream);
 
 
 #endif
