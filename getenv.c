@@ -17,7 +17,6 @@ void _getenv(char **envar, char **var_names)
 			write(1, &nl, 1);
 			i++;
 		}
-		
 	}
 	prompt(envar);
 

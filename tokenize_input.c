@@ -12,27 +12,27 @@ char **tokenize_input(char *input, char *delim)
 	char *line_copy = strdup(input);
 	int num_tok = 0;
 	int i = 0;
-	char *tok = _strtok(line_copy, delim);
+	char *tok = strtok(line_copy, delim);
 	/*int len = strlen(line_copy);*/
 
 	/*count number of tokens*/
 	while (tok)
 	{
 		num_tok++;
-		tok = _strtok(NULL, delim);
+		tok = strtok(NULL, delim);
 	}
 	/*allocate mem for tokens*/
 	argv = malloc((num_tok + 1) * sizeof(char *));
 
 	free(line_copy);
 	line_copy = strdup(input);
-	tok = _strtok(line_copy, delim);
+	tok = strtok(line_copy, delim);
 	while (tok)
 	{
 
 		argv[i] = malloc((strlen(tok) + 1) * sizeof(char));
 		strcpy(argv[i], tok);
-		tok = _strtok(NULL, delim);
+		tok = strtok(NULL, delim);
 		i++;
 
 	}

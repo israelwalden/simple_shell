@@ -52,7 +52,7 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 			_strcpy(*lineptr, buffer);
 		}
 	}
-	/* swap endling newline with '\0'*/	
+	/* swap endling newline with '\0'*/
 	nl = _strchr(*lineptr, '\n');
 	if (nl != NULL)
 		*nl = '\0';

@@ -15,7 +15,7 @@ char *_strncpy(char *dest, char *src, int n)
 	while (i < n && src[i] != '\0')/*while i < limit and 2ndis not at  end */
 	{
 		dest[i] = src[i];/*append char in second string to first string*/
- 		i++;/*increase counter*/
+		i++;/*increase counter*/
 	}
 	while (i < n)
 	{

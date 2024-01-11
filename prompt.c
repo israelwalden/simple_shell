@@ -1,6 +1,7 @@
 #include "main.h"
 /**
  * prompt - print $ and waits for user input
+ * @env: environment varible
  */
 void prompt(char **env)
 {
@@ -29,8 +30,9 @@ void prompt(char **env)
 		{
 			perror("tokenization");
 			exit(1);
-		}		
+		}
 		proc_man(argv);
 		free_arg(argv);
-	}
+		free(user_input);
+		}
 }

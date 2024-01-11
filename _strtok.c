@@ -22,7 +22,7 @@ char *_strtok(char *str, char *delim)
 	if (str == NULL || *str == '\0')
 		return (NULL);
 
-	t_len = _strspn(str, delim);
+	t_len = strspn(str, delim);
 	str = str + t_len;
 
 	if (*str ==  '\0')

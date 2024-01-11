@@ -2,7 +2,7 @@
 /**
  * get_com_path - gets the path to the command
  * @arg: string
- * @env: environment varibles
+ * @envar: environment varibles
  * Return: char pointer to command string
  */
 char *get_com_path(char *arg, char **envar)
