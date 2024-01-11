@@ -31,7 +31,7 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 		*lineptr = malloc((n_rd + 1) * sizeof(char));
 		if (*lineptr == NULL)
 			return (-1);
-		_strcpy(*lineptr, buffer);
+		strcpy(*lineptr, buffer);
 	}
 	else
 	{
@@ -41,7 +41,7 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 			lineptr = malloc((n_rd + 1) * sizeof(char));
 			if (*lineptr == NULL)
 				return (-1);
-			_strcpy(*lineptr, buffer);
+			strcpy(*lineptr, buffer);
 		}
 		else
 		{
@@ -49,13 +49,13 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 			if (*lineptr == NULL)
 				return (-1);
 
-			_strcpy(*lineptr, buffer);
+			strcpy(*lineptr, buffer);
 		}
 	}
 	/* swap endling newline with '\0'*/
 	nl = _strchr(*lineptr, '\n');
 	if (nl != NULL)
 		*nl = '\0';
-
+	
 	return (n_rd);
 }

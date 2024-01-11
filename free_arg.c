@@ -13,5 +13,6 @@ void free_arg(char **argv)
 		free(argv[i]);
 		i++;
 	}
+	free(argv[i]);
 	free(argv);
 }

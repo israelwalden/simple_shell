@@ -7,6 +7,8 @@
  */
 char *get_com_path(char *arg, char **envar)
 {
+	char *var_names[] = {"HOST","LANGUAGE","PWD","TZ","HOME","LANG","SHLVL","LC_ALL","PATH","OLDPWD"};
+
 	shell_commands com_path[] = {
 	{"l", "/bin/ls"},
 	{"ls", "/bin/ls"},
@@ -25,7 +27,7 @@ char *get_com_path(char *arg, char **envar)
 
 	if (_strcmp(arg, env) == 0)
 	{
-	_getenv(envar, NULL);
+	_getenv(envar, var_names);
 	exit(EXIT_SUCCESS);
 	}
 
