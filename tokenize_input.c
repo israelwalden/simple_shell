@@ -33,7 +33,7 @@ char **tokenize_input(char *input, char *delim)
 		argv[i] = malloc((strlen(tok) + 1) * sizeof(char));
 		strcpy(argv[i], tok);
 		tok = strtok(NULL, delim);
-		i++;
+	i++;
 
 	}
 	argv[i] = NULL;

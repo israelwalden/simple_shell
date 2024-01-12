@@ -6,11 +6,12 @@
 void prompt(char **env)
 {
 	char *p = "$ ";
+	char *ext = "exit";
 	char *user_input;
 	char *delim = " \n\t";
 	size_t len = 0;
-	int n_read;
-	char **argv;
+	int n_read = 0;
+	char **argv = NULL;
 
 
 	while (1)
@@ -21,6 +22,7 @@ void prompt(char **env)
 		if (n_read == -1)
 		{
 			free(user_input);
+			free_arg(argv);
 			/*perror("getline");*/
 			exit(1);
 		}
@@ -28,11 +30,22 @@ void prompt(char **env)
 		argv[0] = get_com_path(argv[0], env);
 		if (argv == NULL)
 		{
+			free_arg(argv);
+			free(user_input);
+			len = 0;
+			user_input = NULL;
 			perror("tokenization");
 			exit(1);
 		}
+		if (_strcmp(argv[0], ext) == 0)
+		{
+			free(user_input);
+			user_input = NULL;
+			len = 0;
+			free_arg(argv);
+			_exit(EXIT_SUCCESS);
+		}
 		proc_man(argv);
 		free_arg(argv);
-		free(user_input);
-		}
+	}
 }

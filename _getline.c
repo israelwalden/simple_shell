@@ -10,8 +10,8 @@
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 {
 	char buffer[BUFFSIZE];
-	size_t n_rd;
-	char *nl;
+	size_t n_rd = 0;
+	char *nl = NULL;
 	(void)stream;
 	/*read buffer */
 	n_rd = read(0, buffer, BUFFSIZE);
@@ -56,6 +56,5 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 	nl = _strchr(*lineptr, '\n');
 	if (nl != NULL)
 		*nl = '\0';
-	
 	return (n_rd);
 }

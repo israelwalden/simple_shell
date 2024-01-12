@@ -17,12 +17,12 @@ char *get_com_path(char *arg, char **envar)
 	{NULL, NULL}
 	};
 	int i = 0;
-	char *ext = "exit";
 	char *env = "env";
+	char *ext = "exit";
 
 	if (_strcmp(arg, ext) == 0)
 	{
-	_exit(EXIT_SUCCESS);
+		return (arg);
 	}
 
 	if (_strcmp(arg, env) == 0)
