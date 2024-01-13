@@ -13,11 +13,10 @@ void prompt(char **env)
 	int n_read = 0;
 	char **argv = NULL;
 
-
 	while (1)
 	{
 		write(1, p, strlen(p));
-		n_read = getline(&user_input, &len, stdin);
+		n_read = _getline(&user_input, &len, stdin);
 		/*handle geline error*/
 		if (n_read == -1)
 		{

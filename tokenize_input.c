@@ -9,7 +9,7 @@
 char **tokenize_input(char *input, char *delim)
 {
 	char **argv;
-	char *line_copy = strdup(input);
+	char *line_copy = _strdup(input);
 	int num_tok = 0;
 	int i = 0;
 	char *tok = strtok(line_copy, delim);
@@ -25,7 +25,7 @@ char **tokenize_input(char *input, char *delim)
 	argv = malloc((num_tok + 1) * sizeof(char *));
 
 	free(line_copy);
-	line_copy = strdup(input);
+	line_copy = _strdup(input);
 	tok = strtok(line_copy, delim);
 	while (tok)
 	{

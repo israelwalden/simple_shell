@@ -7,7 +7,8 @@
  */
 char *get_com_path(char *arg, char **envar)
 {
-	char *var_names[] = {"HOST","LANGUAGE","PWD","TZ","HOME","LANG","SHLVL","LC_ALL","PATH","OLDPWD"};
+	char *var_names[] = {"HOST", "LANGUAGE", "PWD", "TZ", "HOME",
+		"LANG", "SHLVL", "LC_ALL", "PATH", "OLDPWD"};
 
 	shell_commands com_path[] = {
 	{"l", "/bin/ls"},

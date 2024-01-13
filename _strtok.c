@@ -7,7 +7,6 @@
  * Return: returns a pointer to s \0 termianted string or NULL
  */
 
-
 char *_strtok(char *str, char *delim)
 {
 	static char *last_tok;
